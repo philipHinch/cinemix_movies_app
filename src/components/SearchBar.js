@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react';
 
 const SearchBar = () => {
     return (
-        <div className="form-control flex-row my-auto">
+        <div className="form-control flex-row my-auto ">
             <label className="label">
                 <Icon icon="mdi:magnify" className='text-3xl' />
             </label>

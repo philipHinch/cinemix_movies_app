@@ -4,7 +4,13 @@ const movieReducer = (state, action) => {
             return {
                 ...state,
                 movies: action.payload,
-                isLoading: false
+                isLoading: false,
+                isMoviesActive: true
+            }
+        case 'SET_LOADING':
+            return {
+                ...state,
+                isLoading: true
             }
         default:
             return state
