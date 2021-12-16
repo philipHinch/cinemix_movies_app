@@ -20,6 +20,26 @@ const movieReducer = (state, action) => {
                 isTopMovies: false,
                 isComingSoon: false
             }
+        case 'GET_TOP_MOVIES':
+            return {
+                ...state,
+                movies: action.payload,
+                isLoading: false,
+                isMoviesActive: true,
+                isNowPlaying: false,
+                isTopMovies: true,
+                isComingSoon: false
+            }
+        case 'GET_COMING_SOON_MOVIES':
+            return {
+                ...state,
+                movies: action.payload,
+                isLoading: false,
+                isMoviesActive: true,
+                isNowPlaying: false,
+                isTopMovies: false,
+                isComingSoon: true
+            }
         case 'SET_LOADING':
             return {
                 ...state,

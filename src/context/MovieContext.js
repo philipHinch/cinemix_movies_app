@@ -29,7 +29,6 @@ export const MovieProvider = ({ children }) => {
         }
     }
 
-    //https://api.themoviedb.org/3/search/movie?api_key=${ process.env.REACT_APP_API_KEY }&language=en-US&page=1&include_adult=false&query={e.target.value}
     //get search movies
     const getSearchMovies = async (value) => {
         setLoading()
@@ -37,9 +36,40 @@ export const MovieProvider = ({ children }) => {
             const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${ process.env.REACT_APP_API_KEY }&language=en-US&page=1&include_adult=false&query=${ value }`)
             const data = await response.json()
 
-            console.log(data.results);
             dispatch({
                 type: 'GET_SEARCH_MOVIES',
+                payload: data.results
+            })
+        } catch (err) {
+            throw new Error(err)
+        }
+    }
+
+    //get top movies
+    const getTopMovies = async () => {
+        setLoading()
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${ process.env.REACT_APP_API_KEY }&language=en-US&page=1`)
+            const data = await response.json()
+
+            dispatch({
+                type: 'GET_TOP_MOVIES',
+                payload: data.results
+            })
+        } catch (err) {
+            throw new Error(err)
+        }
+    }
+
+    //get coming soon movies
+    const getComingSoonMovies = async () => {
+        setLoading()
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${ process.env.REACT_APP_API_KEY }&language=en-US&page=1`)
+            const data = await response.json()
+
+            dispatch({
+                type: 'GET_COMING_SOON_MOVIES',
                 payload: data.results
             })
         } catch (err) {
@@ -53,8 +83,6 @@ export const MovieProvider = ({ children }) => {
         })
     }
 
-
-
     return (
         <MovieContext.Provider value={{
             movies: state.movies,
@@ -64,7 +92,9 @@ export const MovieProvider = ({ children }) => {
             isTopMovies: state.isTopMovies,
             isComingSoon: state.isComingSoon,
             getNowPlaying,
-            getSearchMovies
+            getSearchMovies,
+            getTopMovies,
+            getComingSoonMovies
         }}>
             {children}
         </MovieContext.Provider>

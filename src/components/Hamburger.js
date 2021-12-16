@@ -1,8 +1,13 @@
 import { Icon } from '@iconify/react';
 
-const Hamburger = () => {
+const Hamburger = ({ setIsMenuOpen }) => {
+
+    const handleClick = () => {
+        setIsMenuOpen(true)
+    }
+
     return (
-        <button className='btn btn-square btn-ghost '>
+        <button onClick={handleClick} className='btn btn-square btn-ghost '>
             <Icon icon="mdi:menu" className='text-3xl' />
         </button>
     );
