@@ -2,7 +2,7 @@ import spinner from '../assets/spinner.gif'
 
 const Spinner = () => {
     return (
-        <div className='w-100 mt-20 m-auto'>
+        <div className='w-full mt-20 m-auto '>
             <img src={spinner} alt="Loading..." width={180} className="text-center mx-auto" />
         </div>
     );

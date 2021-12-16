@@ -1,13 +1,31 @@
+import { useContext } from 'react';
+import MovieContext from '../context/MovieContext';
 import { Icon } from '@iconify/react';
 
 const SearchBar = () => {
+
+    const { getSearchMovies, getNowPlaying, isLoading } = useContext(MovieContext)
+
+    const handleChange = (e) => {
+        if (e.target.value === '') {
+            getNowPlaying()
+        } else {
+            getSearchMovies(e.target.value)
+        }
+    }
+
     return (
-        <div className="form-control flex-row my-auto ">
-            <label className="label">
-                <Icon icon="mdi:magnify" className='text-3xl' />
-            </label>
-            <input type="text" placeholder="Search Movies..." className="input w-30 text-sm xl:w-80 xl:text-lg lg:w-80 lg:text-lg md:w-80 md:text-lg sm:w-80 sm:text-lg focus:outline-primary ml-1 tracking-widest " />
-        </div>
+        <>
+            <button className={`btn btn-md mr-3 btn-circle bg-base-100 text-primary-light ${ isLoading ? 'opacity-100' : 'opacity-0' } transition-none loading`}></button>
+            <div className="form-control">
+                <input
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Search.."
+                    className="input w-80 tracking-widest focus:border-white text-lg mr-2" />
+            </div>
+            <Icon icon="mdi:magnify" className='text-3xl mr-2' />
+        </>
     );
 }
 

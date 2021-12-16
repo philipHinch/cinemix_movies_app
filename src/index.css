@@ -8,3 +8,22 @@
 .movie-card:hover figure img {
   transform: scale(1.02);
 }
+.bg-primary-light {
+  background-color: #af8aff;
+}
+.image-placeholder {
+  background-color: #2a2e37;
+  opacity: 1;
+  background: repeating-linear-gradient(
+    -45deg,
+    #3d4451,
+    #3d4451 2.5px,
+    #2a2e37 2.5px,
+    #2a2e37 12.5px
+  );
+}
+.absolute-tab {
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+}
