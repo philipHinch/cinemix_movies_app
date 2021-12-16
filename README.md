@@ -2,11 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-###Install Dependancies:
+### Install Dependencies
 
-```npm run start```
+```
+npm install
+```
 
-###Run:
+### Run
 
-```npm start```
+```
+npm start
+```
+
 
