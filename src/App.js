@@ -8,6 +8,7 @@ import Tab from './components/Tab';
 import Footer from './layout/Footer'
 import TvShows from './pages/TvShows';
 import SlidingMenu from './layout/SlidingMenu';
+import NotFound from './pages/NotFound';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home isChecked={isChecked} />}></Route>
             <Route path="/tvshows" element={<TvShows />}></Route>
+            <Route path="/*" element={<NotFound isChecked={isChecked} />}></Route>
           </Routes>
           <Footer />
         </div>
