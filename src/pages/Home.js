@@ -12,9 +12,7 @@ const Home = ({ isChecked }) => {
     //on initial page load, get now playing movies
     useEffect(() => {
         getNowPlaying()
-        console.log(typeof movies);
     }, [])
-    console.log(typeof movies);
 
     return (
         <>
@@ -23,7 +21,7 @@ const Home = ({ isChecked }) => {
                 {movies && movies.map(movie => (
                     <MovieCard key={movie.id} movie={movie} isNowPlaying={isNowPlaying} isComingSoon={isComingSoon} />
                 ))}
-                {movies.length < 1 && <div className='h-screen text-2xl'>No Results</div>}
+                {/* {movies.length < 1 && <div className='h-screen text-2xl'>No Results</div>} */}
             </div>
             <Pagination />
         </>
