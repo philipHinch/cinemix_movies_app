@@ -3,6 +3,8 @@ import movieReducer from "./MovieReducer";
 
 const MovieContext = createContext()
 
+const APIKEY = '5d07786947a87a52654a8ebdaa43a2d0'
+
 export const MovieProvider = ({ children }) => {
 
     const initialState = {
@@ -17,7 +19,7 @@ export const MovieProvider = ({ children }) => {
     const getNowPlaying = async () => {
         setLoading()
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${ process.env.REACT_APP_API_KEY }&language=en-US&page=1`)
+            const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${ APIKEY }&language=en-US&page=1`)
             const data = await response.json()
 
             dispatch({
@@ -33,7 +35,7 @@ export const MovieProvider = ({ children }) => {
     const getSearchMovies = async (value) => {
         setLoading()
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${ process.env.REACT_APP_API_KEY }&language=en-US&page=1&include_adult=false&query=${ value }`)
+            const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${ APIKEY }&language=en-US&page=1&include_adult=false&query=${ value }`)
             const data = await response.json()
 
             dispatch({
@@ -49,7 +51,7 @@ export const MovieProvider = ({ children }) => {
     const getTopMovies = async () => {
         setLoading()
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${ process.env.REACT_APP_API_KEY }&language=en-US&page=1`)
+            const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${ APIKEY }&language=en-US&page=1`)
             const data = await response.json()
 
             dispatch({
@@ -65,7 +67,7 @@ export const MovieProvider = ({ children }) => {
     const getComingSoonMovies = async () => {
         setLoading()
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${ process.env.REACT_APP_API_KEY }&language=en-US&page=1`)
+            const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${ APIKEY }&language=en-US&page=1`)
             const data = await response.json()
 
             dispatch({
