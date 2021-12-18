@@ -45,9 +45,35 @@
 .hide-menu {
   left: -9999px;
 }
-
+.pagination-container {
+  display: flex;
+  z-index: 9999;
+  margin-top: 40px;
+  padding: 0px;
+  overflow-x: scroll;
+}
+.btn-active {
+  background-color: #570df8;
+}
+/* scrollbar styling */
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #bbb;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #af8aff;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #570df8;
+}
 /* opening */
-
 .overlay {
   position: fixed;
   height: 100vh;

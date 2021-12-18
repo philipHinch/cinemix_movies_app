@@ -40,6 +40,46 @@ const movieReducer = (state, action) => {
                 isTopMovies: false,
                 isComingSoon: true
             }
+        case 'GET_NEXT_PAGE_NOW':
+            return {
+                ...state,
+                movies: action.payload,
+                isLoading: false,
+                isMoviesActive: true,
+                isNowPlaying: true,
+                isTopMovies: false,
+                isComingSoon: false
+            }
+        case 'GET_NEXT_PAGE_SEARCH':
+            return {
+                ...state,
+                movies: action.payload,
+                isLoading: false,
+                isMoviesActive: true,
+                isNowPlaying: false,
+                isTopMovies: false,
+                isComingSoon: false
+            }
+        case 'GET_NEXT_PAGE_TOP':
+            return {
+                ...state,
+                movies: action.payload,
+                isLoading: false,
+                isMoviesActive: true,
+                isNowPlaying: false,
+                isTopMovies: true,
+                isComingSoon: false
+            }
+        case 'GET_NEXT_PAGE_UPCOMING':
+            return {
+                ...state,
+                movies: action.payload,
+                isLoading: false,
+                isMoviesActive: true,
+                isNowPlaying: false,
+                isTopMovies: false,
+                isComingSoon: true
+            }
         case 'SET_LOADING':
             return {
                 ...state,
