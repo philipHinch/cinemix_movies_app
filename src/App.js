@@ -30,8 +30,8 @@ function App() {
   return (
     <MovieProvider>
       <Router>
-        <div className={`flex flex-col  justify-between h-screen	 tracking-widest relative transition-all ${ isLightMode ? 'bg-white' : 'bg-neutral' }`}>
-          <SlidingMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <div className={`flex flex-col  justify-between h-screen	 tracking-widest relative transition-all ${ isLightMode ? 'bg-white' : 'bg-neutral' } ${ isMenuOpen && 'overflow-y-hidden	' }`}>
+          <SlidingMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} isLightMode={isLightMode} />
           <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} setIsLightMode={setIsLightMode} isLightMode={isLightMode} />
           <Tab />
           <Routes>

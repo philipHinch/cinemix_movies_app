@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import MovieContext from "../context/MovieContext";
+
 const Pagination = ({ numberPages, currentPage, getNextPageNow, getNextPageSearch, getNextPageTop, getNextPageUpcoming, isNowPlaying, isTopMovies, isComingSoon }) => {
+
+    const { searchValue } = useContext(MovieContext)
 
     const pageLinks = []
 
@@ -10,7 +15,7 @@ const Pagination = ({ numberPages, currentPage, getNextPageNow, getNextPageSearc
         } else if (isComingSoon) {
             getNextPageUpcoming(i)
         } else {
-            //somehow get search value here and call getNextPageSearch and pass the 2 parameters (search value & page number)
+            getNextPageSearch(searchValue, i)
         }
     }
 
@@ -21,19 +26,9 @@ const Pagination = ({ numberPages, currentPage, getNextPageNow, getNextPageSearc
 
 
     return (
-
-        <ul className=" bg-neutral pagination-container ">
+        <ul className=" bg-neutral pagination-container w-full  ">
             {pageLinks}
         </ul>
-
-        // <div className="btn-group bg-neutral flex justify-center">
-        //     <button className="btn btn-md ">«</button>
-        //     <button className="btn btn-md btn-active">1</button>
-        //     <button className="btn btn-md ">2</button>
-        //     <button className="btn btn-md">3</button>
-        //     <button className="btn btn-md">4</button>
-        //     <button className="btn btn-md">»</button>
-        // </div>
     );
 }
 

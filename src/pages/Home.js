@@ -23,7 +23,7 @@ const Home = ({ isLightMode }) => {
                 {movies && movies.map(movie => (
                     <MovieCard key={movie.id} movie={movie} isNowPlaying={isNowPlaying} isComingSoon={isComingSoon} />
                 ))}
-                {/* {movies.length < 1 && <div className='h-screen text-2xl'>No Results</div>} */}
+                {movies.length < 1 && <div className='h-screen text-3xl text-primary-light mt-20'>No Results</div>}
                 {totalResults > 20 && <Pagination numberPages={numberPages} currentPage={currentPage} getNextPageNow={getNextPageNow} getNextPageSearch={getNextPageSearch} getNextPageTop={getNextPageTop} getNextPageUpcoming={getNextPageUpcoming} isNowPlaying={isNowPlaying} isTopMovies={isTopMovies} isComingSoon={isComingSoon} />}
             </div>
 

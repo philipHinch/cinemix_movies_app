@@ -3,12 +3,13 @@ import movieReducer from "./MovieReducer";
 
 const MovieContext = createContext()
 
-const APIKEY = '5d07786947a87a52654a8ebdaa43a2d0'
+const APIKEY = '5d07786947a87a52654a8ebdaa43a2d0';
 
 export const MovieProvider = ({ children }) => {
 
     const [totalResults, setTotalResults] = useState(0)
     const [currentPage, setCurrentPage] = useState(1)
+    const [searchValue, setSearchValue] = useState('')
 
     const initialState = {
         movies: [],
@@ -28,7 +29,6 @@ export const MovieProvider = ({ children }) => {
             setTotalResults(data.total_results)
             setCurrentPage(data.page)
 
-
             dispatch({
                 type: 'GET_NOW_PLAYING',
                 payload: data.results
@@ -46,8 +46,6 @@ export const MovieProvider = ({ children }) => {
             const data = await response.json()
             setTotalResults(data.total_results)
             setCurrentPage(data.page)
-
-
 
             dispatch({
                 type: 'GET_SEARCH_MOVIES',
@@ -67,8 +65,6 @@ export const MovieProvider = ({ children }) => {
             setTotalResults(data.total_results)
             setCurrentPage(data.page)
 
-
-
             dispatch({
                 type: 'GET_TOP_MOVIES',
                 payload: data.results
@@ -86,8 +82,6 @@ export const MovieProvider = ({ children }) => {
             const data = await response.json()
             setTotalResults(data.total_results)
             setCurrentPage(data.page)
-
-
 
             dispatch({
                 type: 'GET_COMING_SOON_MOVIES',
@@ -109,7 +103,6 @@ export const MovieProvider = ({ children }) => {
             setTotalResults(data.total_results)
             setCurrentPage(data.page)
 
-
             dispatch({
                 type: 'GET_NEXT_PAGE_NOW',
                 payload: data.results
@@ -127,7 +120,6 @@ export const MovieProvider = ({ children }) => {
             const data = await response.json()
             setTotalResults(data.total_results)
             setCurrentPage(data.page)
-
 
             dispatch({
                 type: 'GET_NEXT_PAGE_SEARCH',
@@ -193,6 +185,7 @@ export const MovieProvider = ({ children }) => {
             isComingSoon: state.isComingSoon,
             currentPage: currentPage,
             totalResults: totalResults,
+            searchValue: searchValue,
             getNowPlaying,
             getSearchMovies,
             getTopMovies,
@@ -200,7 +193,8 @@ export const MovieProvider = ({ children }) => {
             getNextPageNow,
             getNextPageSearch,
             getNextPageTop,
-            getNextPageUpcoming
+            getNextPageUpcoming,
+            setSearchValue
         }}>
             {children}
         </MovieContext.Provider>
