@@ -1,5 +1,4 @@
-import { createContext, useReducer } from "react";
-import { useState } from "react/cjs/react.development";
+import { createContext, useReducer, useState } from "react";
 import movieReducer from "./MovieReducer";
 
 const MovieContext = createContext()
