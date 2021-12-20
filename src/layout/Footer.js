@@ -8,7 +8,7 @@ const Footer = () => {
     const absoluteLogo = 'absolute-logo';
 
     return (
-        <footer className="bg-base-300 px-5 py-10  border-t-2 border-primary z-20 relative">
+        <footer className="bg-base-300 px-5 py-10  border-t-2 border-primary z-20 relative ">
             <Logo absoluteLogo={absoluteLogo} />
             <div className='social-icons-container absolute-social'>
                 <div className="flex">

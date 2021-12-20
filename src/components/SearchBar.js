@@ -18,7 +18,7 @@ const SearchBar = () => {
 
     return (
         <>
-            <button className={`hidden lg:block btn btn-md mr-3 btn-circle bg-base-100 text-primary-light ${ isLoading ? 'opacity-100' : 'opacity-0' } transition-none loading`}></button>
+            <button className={`hidden lg:block btn btn-md mr-3 btn-circle loading bg-base-100 text-primary-light ${ isLoading ? 'opacity-100' : 'opacity-0' } transition-none `}></button>
             <div className="form-control">
                 <input
                     onChange={handleChange}

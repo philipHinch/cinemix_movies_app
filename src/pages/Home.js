@@ -5,13 +5,14 @@ import Pagination from "../components/Pagination";
 import Opening from "./Opening";
 
 
-const Home = ({ isLightMode }) => {
+const Home = ({ isLightMode, setIsMovieInfo }) => {
 
     const { movies, isLoading, isNowPlaying, isTopMovies, getNowPlaying, isComingSoon, currentPage, totalResults, getNextPageNow, getNextPageSearch, getNextPageTop, getNextPageUpcoming } = useContext(MovieContext)
 
     //on initial page load, get now playing movies
     useEffect(() => {
         getNowPlaying()
+        setIsMovieInfo(false)
     }, [])
 
     const numberPages = Math.floor(totalResults / 20)

@@ -10,12 +10,16 @@ const Pagination = ({ numberPages, currentPage, getNextPageNow, getNextPageSearc
     const handleClick = (i) => {
         if (isNowPlaying) {
             getNextPageNow(i)
+            window.scrollTo(0, 0)
         } else if (isTopMovies) {
             getNextPageTop(i)
+            window.scrollTo(0, 0)
         } else if (isComingSoon) {
             getNextPageUpcoming(i)
+            window.scrollTo(0, 0)
         } else {
             getNextPageSearch(searchValue, i)
+            window.scrollTo(0, 0)
         }
     }
 

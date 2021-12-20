@@ -1,14 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*----------- utility classes -----------*/
 .text-primary-light {
   color: #af8aff;
 }
-.movie-card:hover figure img {
-  transform: scale(1.02);
+.btn-active {
+  background-color: #570df8;
 }
 .bg-primary-light {
   background-color: #af8aff;
+}
+/*----------- other -----------*/
+.movie-card:hover figure img {
+  transform: scale(1.02);
 }
 .image-placeholder {
   background-color: #2a2e37;
@@ -21,12 +27,35 @@
     #2a2e37 12.5px
   );
 }
+/*---------- movie info  -----------*/
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+.movie-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+}
+/*----------- movie tab -----------*/
 .absolute-tab {
   top: 130px;
   left: 50%;
   transform: translateX(-50%);
 }
-/* footer */
+/*----------- footer -----------*/
 .absolute-logo {
   position: absolute;
   top: 20px;
@@ -41,9 +70,8 @@
   display: flex;
   justify-content: center;
   height: 0px;
-
-  /* transform: translateX(-50%); */
 }
+/*----------- sliding hamburger menu -----------*/
 .sliding-menu-container {
   position: fixed;
   width: 30%;
@@ -59,7 +87,7 @@
 .hide-menu {
   left: -9999px;
 }
-
+/*----------- pagination -----------*/
 .pagination-container {
   display: flex;
   justify-content: flex-start;
@@ -69,10 +97,9 @@
   padding: 0px;
   overflow-x: scroll;
 }
-.btn-active {
-  background-color: #570df8;
-}
-/* scrollbar styling */
+
+/*------------------ scrollbar styling -----------------*/
+
 /* width */
 ::-webkit-scrollbar {
   width: 7px;
@@ -90,7 +117,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #570df8;
 }
-/* opening */
+/*----------- opening animation -----------*/
 .overlay {
   position: fixed;
   height: 100vh;
@@ -173,6 +200,39 @@
   .theme-selector {
     display: block;
   }
+  .top-inner-movie-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .movie-details {
+    padding: 0;
+    margin: 0;
+  }
+  .movie-title-container {
+    flex-direction: column;
+  }
+  .movie-title {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .language {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .vote-container {
+    margin-bottom: 20px;
+  }
+
+  .movie-overview {
+    font-size: 0.9rem;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .genre-badge {
+    font-size: 0.7rem;
+  }
 }
 @media (max-width: 700px) {
   .form-control input {
@@ -180,8 +240,22 @@
     letter-spacing: 1px;
     font-size: 1rem;
   }
+  .bottom-inner-movie-container {
+    overflow-y: scroll;
+  }
+  .video-carousel {
+    flex-wrap: wrap;
+  }
 }
 @media (max-width: 500px) {
+  .sliding-menu-container div {
+    font-size: 1.1rem;
+    padding: 10px;
+  }
+  .sliding-menu-container a {
+    font-size: 1.1rem;
+    padding: 10px;
+  }
   .form-control input {
     font-size: 0.9rem;
   }
@@ -204,5 +278,15 @@
   }
   .copyright-container {
     font-size: 0.7rem;
+  }
+  .top-inner-movie-container {
+    margin: 48px 0;
+  }
+  .bottom-inner-movie-container {
+    padding: 0;
+    margin: 10px 0;
+  }
+  .video-carousel {
+    flex-wrap: wrap;
   }
 }

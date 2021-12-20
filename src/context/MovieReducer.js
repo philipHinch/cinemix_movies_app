@@ -1,5 +1,11 @@
 const movieReducer = (state, action) => {
     switch (action.type) {
+        case 'GET_MOVIE_BY_ID':
+            return {
+                ...state,
+                movie: action.payload,
+                isLoading: false
+            }
         case 'GET_NOW_PLAYING':
             return {
                 ...state,
@@ -79,6 +85,12 @@ const movieReducer = (state, action) => {
                 isNowPlaying: false,
                 isTopMovies: false,
                 isComingSoon: true
+            }
+        case 'GET_MOVIE_VIDEOS':
+            return {
+                ...state,
+                videos: action.payload,
+                isLoading: false
             }
         case 'SET_LOADING':
             return {

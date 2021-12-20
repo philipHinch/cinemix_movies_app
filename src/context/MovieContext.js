@@ -20,6 +20,22 @@ export const MovieProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(movieReducer, initialState)
 
+    //get movie by id
+    const getMovieById = async (id) => {
+        setLoading()
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${ id }?api_key=${ APIKEY }&language=en-US`)
+            const data = await response.json()
+
+            dispatch({
+                type: 'GET_MOVIE_BY_ID',
+                payload: data
+            })
+        } catch (err) {
+            throw new Error(err)
+        }
+    }
+
     //get now playing movies
     const getNowPlaying = async () => {
         setLoading()
@@ -168,6 +184,38 @@ export const MovieProvider = ({ children }) => {
         }
     }
 
+    //get movie videos
+    const getMovieVideos = async (id) => {
+        setLoading()
+        try {
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${ id }/videos?api_key=${ APIKEY }&language=en-US`)
+            const data = await response.json()
+
+            dispatch({
+                type: 'GET_MOVIE_VIDEOS',
+                payload: data.results
+            })
+        } catch (err) {
+            throw new Error(err)
+        }
+    }
+
+    //get movie images
+    // const getMovieImages = async (id) => {
+    //     setLoading()
+    //     try {
+    //         const response = await fetch(`https://api.themoviedb.org/3/movie/${ id }/images?api_key=${ APIKEY }&language=en-US`)
+    //         const data = await response.json()
+
+    //         dispatch({
+    //             type: 'GET_MOVIE_IMAGES',
+    //             payload: data.results
+    //         })
+    //     } catch (err) {
+    //         throw new Error(err)
+    //     }
+    // }
+
 
     const setLoading = () => {
         dispatch({
@@ -177,6 +225,7 @@ export const MovieProvider = ({ children }) => {
 
     return (
         <MovieContext.Provider value={{
+            movie: state.movie,
             movies: state.movies,
             isLoading: state.isLoading,
             isMoviesActive: state.isMoviesActive,
@@ -186,6 +235,8 @@ export const MovieProvider = ({ children }) => {
             currentPage: currentPage,
             totalResults: totalResults,
             searchValue: searchValue,
+            videos: state.videos,
+            getMovieById,
             getNowPlaying,
             getSearchMovies,
             getTopMovies,
@@ -194,7 +245,8 @@ export const MovieProvider = ({ children }) => {
             getNextPageSearch,
             getNextPageTop,
             getNextPageUpcoming,
-            setSearchValue
+            setSearchValue,
+            getMovieVideos
         }}>
             {children}
         </MovieContext.Provider>
