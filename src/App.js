@@ -42,7 +42,7 @@ function App() {
             <Route path="/movie/:id" element={<Movie setIsMovieInfo={setIsMovieInfo} />}></Route>
             <Route path="/*" element={<NotFound isLightMode={isLightMode} />}></Route>
           </Routes>
-          <Footer />
+          {!isMovieInfo && <Footer />}
         </div>
       </Router>
     </MovieProvider>
