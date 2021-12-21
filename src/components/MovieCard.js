@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import Indicator from './Indicator';
 import { useContext } from 'react';
 import MovieContext from "../context/MovieContext";
+import AddRemoveBtn from "./AddRemoveBtn";
 
 
 const MovieCard = ({ movie: { title, vote_average, poster_path, id, release_date }, isNowPlaying, isComingSoon }) => {
@@ -12,7 +13,7 @@ const MovieCard = ({ movie: { title, vote_average, poster_path, id, release_date
             <div id={id} className="card movie-card border-base-300 border-2 w-52 m-2 bg-base-100 shadow-xl cursor-pointer transition rounded-none z-10 relative">
                 {isComingSoon && <Indicator text={'SOON'} />}
                 {isNowPlaying && <Indicator text={'NEW'} />}
-                <button className="btn  absolute top-0 left-0 z-20 p-2 rounded-none opacity-80 text-lg">+</button>
+                <AddRemoveBtn />
                 <figure className='border-b-2 border-base-300 overflow-hidden'>
                     {poster_path ? <img src={`https://image.tmdb.org/t/p/w200${ poster_path && poster_path }`} alt='image poster' className='transition' id={id} /> : <div className='image-placeholder flex items-center	justify-center text-white text-xs' style={{ width: '100%', height: '305px', }} >No Image</div>}
                 </figure>

@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useContext } from 'react';
 import MovieContext from "../context/MovieContext";
+import AddRemoveBtn from "../components/AddRemoveBtn";
 import { Icon } from '@iconify/react';
 
 
@@ -33,7 +34,7 @@ const Movie = ({ setIsMovieInfo }) => {
                 <div className="top-inner-movie-container max-w-[1280px] m-10 mt-12 rounded-xl shadow-xl text-white h-full bg-base-100 bg-opacity-40  p-10 pt-16 pb-16 flex ">
                     <div className="poster-image-container relative">
                         <img src={`https://image.tmdb.org/t/p/w200${ movie && movie.poster_path }`} alt="movie poster" className="min-w-[200px]" />
-                        <button className="btn absolute top-0 left-0 z-20 p-2 rounded-none  opacity-80 text-lg">+</button>
+                        <AddRemoveBtn />
                     </div>
                     <div className="movie-details mx-10 mr-0 flex flex-col justify-between ">
 
@@ -56,14 +57,14 @@ const Movie = ({ setIsMovieInfo }) => {
                         </p>
 
                         <ul className="flex movie-genres">
-                            {movie && movie.genres.map(genre => (
+                            {movie && movie.genres.map((genre) => (
                                 <li key={genre.id} className="badge badge-primary mx-2 genre-badge">{genre.name}</li>
                             ))}
                         </ul>
 
                         <div className="video-carousel flex flex-row  my-5 justify-center rounded-box ">
                             {videos && videos.slice(0, 3).map(video => (
-                                <div className="m-5">
+                                <div key={video.id} className="m-5">
                                     <iframe className="video-carousel-item  w-full" key={video.key} width="400" height="170" src={`https://www.youtube.com/embed/${ video.key && video.key }`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                 </div>
                             ))}
@@ -71,16 +72,6 @@ const Movie = ({ setIsMovieInfo }) => {
 
                     </div>
                 </div>
-                {/* {videos && <div className="bottom-inner-movie-container max-w-[1200px] m-10 mt-0 rounded-xl shadow-xl text-white  bg-base-100 bg-opacity-40 py-10 ">
-                    
-                    <div className="video-carousel flex flex-row  justify-center rounded-box">
-                        {videos && videos.slice(0, 3).map(video => (
-                            <div className="m-5">
-                                <iframe className="video-carousel-item  w-full" key={video.key} width="400" height="170" src={`https://www.youtube.com/embed/${ video.key && video.key }`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                            </div>
-                        ))}
-                    </div>
-                </div>} */}
             </div>
         </>
     );

@@ -206,7 +206,10 @@
   .top-inner-movie-container {
     flex-direction: column;
     align-items: center;
+    margin-top: 70px;
     padding: 10px;
+    padding-top: 30px;
+    border-radius: 0;
   }
   .movie-details {
     padding: 0;
