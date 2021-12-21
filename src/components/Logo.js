@@ -5,8 +5,8 @@ const Logo = ({ isLightMode, absoluteLogo }) => {
     return (
         <Link to='/'>
             <div className={`main-title flex my-auto ${ absoluteLogo }`}>
-                <Icon icon="mdi:play-box" className='text-md md:text-4xl text-primary' />
-                <h1 className="text-sm md:text-2xl uppercase font-bold tracking-widest ml-1 "><span className={`${ isLightMode ? 'text-base-300' : 'text-white' }`}>Cine</span><span className="text-primary">Mix</span></h1>
+                <Icon icon="mdi:play-box" className='text-4xl text-primary' />
+                <h1 className="text-2xl uppercase font-bold tracking-widest ml-1 "><span className={`${ isLightMode ? 'text-base-300' : 'text-white' }`}>Cine</span><span className="text-primary">Mix</span></h1>
             </div>
         </Link>
     );

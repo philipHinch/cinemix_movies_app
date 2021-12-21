@@ -188,6 +188,9 @@
   }
 }
 @media (max-width: 800px) {
+  #header {
+    height: 80px;
+  }
   .sliding-menu-container {
     width: 100%;
   }
@@ -233,6 +236,9 @@
   .genre-badge {
     font-size: 0.7rem;
   }
+  .top-inner-movie-container {
+    overflow-y: scroll;
+  }
 }
 @media (max-width: 700px) {
   .form-control input {
@@ -240,9 +246,7 @@
     letter-spacing: 1px;
     font-size: 1rem;
   }
-  .top-inner-movie-container {
-    overflow-y: scroll;
-  }
+
   .video-carousel {
     flex-wrap: wrap;
   }
