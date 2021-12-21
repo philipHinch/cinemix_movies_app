@@ -23,14 +23,14 @@ const Movie = ({ setIsMovieInfo }) => {
 
     return (
         <>
-            <div className="movie-container relative w-screen h-screen z-10 flex flex-col  items-center">
-                <div className="movie-overlay bg-base-300 blur-sm" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${ movie && movie.backdrop_path })` }}>
+            <div className="movie-container relative w-full h-full z-10 flex flex-col  items-center overflow-y-hidden">
+                <div className="movie-overlay bg-fixed bg-base-300 blur-sm" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${ movie && movie.backdrop_path })` }}>
                 </div>
 
-                <button className="btn go-back-btn absolute btn-sm m-2" onClick={() => navigate(-1)}>Back</button>
+                <button className="btn go-back-btn absolute btn-sm my-3" onClick={() => navigate(-1)}>Back</button>
 
 
-                <div className="top-inner-movie-container max-w-[1280px] m-10 mt-12 rounded-xl shadow-xl text-white  bg-base-100 bg-opacity-40  p-10 pt-16 pb-16 flex justify-center">
+                <div className="top-inner-movie-container max-w-[1280px] m-10 mt-12 rounded-xl shadow-xl text-white h-full bg-base-100 bg-opacity-40  p-10 pt-16 pb-16 flex ">
                     <div className="poster-image-container relative">
                         <img src={`https://image.tmdb.org/t/p/w200${ movie && movie.poster_path }`} alt="movie poster" className="min-w-[200px]" />
                         <button className="btn absolute top-0 left-0 z-20 p-2 rounded-none  opacity-80 text-lg">+</button>
@@ -61,10 +61,18 @@ const Movie = ({ setIsMovieInfo }) => {
                             ))}
                         </ul>
 
+                        <div className="video-carousel flex flex-row  my-5 justify-center rounded-box ">
+                            {videos && videos.slice(0, 3).map(video => (
+                                <div className="m-5">
+                                    <iframe className="video-carousel-item  w-full" key={video.key} width="400" height="170" src={`https://www.youtube.com/embed/${ video.key && video.key }`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                </div>
+                            ))}
+                        </div>
+
                     </div>
                 </div>
-                {videos && <div className="bottom-inner-movie-container max-w-[1200px] m-10 mt-0 rounded-xl shadow-xl text-white  bg-base-100 bg-opacity-40 py-10 ">
-                    {/* ---- */}
+                {/* {videos && <div className="bottom-inner-movie-container max-w-[1200px] m-10 mt-0 rounded-xl shadow-xl text-white  bg-base-100 bg-opacity-40 py-10 ">
+                    
                     <div className="video-carousel flex flex-row  justify-center rounded-box">
                         {videos && videos.slice(0, 3).map(video => (
                             <div className="m-5">
@@ -72,10 +80,7 @@ const Movie = ({ setIsMovieInfo }) => {
                             </div>
                         ))}
                     </div>
-                    {/* {videos && videos.map(video => (
-                        <iframe key={video.key} width="560" height="315" src={`https://www.youtube.com/embed/${ video.key }`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                    ))} */}
-                </div>}
+                </div>} */}
             </div>
         </>
     );
