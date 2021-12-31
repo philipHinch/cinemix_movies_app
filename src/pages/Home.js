@@ -5,7 +5,7 @@ import Pagination from "../components/Pagination";
 import Opening from "./Opening";
 
 
-const Home = ({ isLightMode, setIsMovieInfo }) => {
+const Home = ({ isLightMode, setIsMovieInfo, watchlist, setWatchlist }) => {
 
     const { movies, isLoading, isNowPlaying, isTopMovies, getNowPlaying, isComingSoon, currentPage, totalResults, getNextPageNow, getNextPageSearch, getNextPageTop, getNextPageUpcoming } = useContext(MovieContext)
 
@@ -22,7 +22,7 @@ const Home = ({ isLightMode, setIsMovieInfo }) => {
             {<Opening />}
             <div className={`p-2 justify-center  xl:py-10 xl:px-28 lg:p-20 flex flex-wrap transition-all ${ isLightMode ? 'bg-white' : 'bg-neutral' }`} >
                 {movies && movies.map(movie => (
-                    <MovieCard key={movie.id} movie={movie} isNowPlaying={isNowPlaying} isComingSoon={isComingSoon} />
+                    <MovieCard key={movie.id} movie={movie} isNowPlaying={isNowPlaying} isComingSoon={isComingSoon} watchlist={watchlist} setWatchlist={setWatchlist} />
                 ))}
                 {movies.length < 1 && <div className='h-screen text-3xl text-primary-light mt-20'>No Results</div>}
                 {totalResults > 20 && <Pagination numberPages={numberPages} currentPage={currentPage} getNextPageNow={getNextPageNow} getNextPageSearch={getNextPageSearch} getNextPageTop={getNextPageTop} getNextPageUpcoming={getNextPageUpcoming} isNowPlaying={isNowPlaying} isTopMovies={isTopMovies} isComingSoon={isComingSoon} />}

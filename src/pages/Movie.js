@@ -7,7 +7,7 @@ import { Icon } from '@iconify/react';
 
 
 
-const Movie = ({ setIsMovieInfo }) => {
+const Movie = ({ setIsMovieInfo, watchlist, setWatchlist }) => {
 
     const params = useParams()
 
@@ -34,7 +34,7 @@ const Movie = ({ setIsMovieInfo }) => {
                 <div className="top-inner-movie-container max-w-[1280px] m-10 mt-12 rounded-xl shadow-xl text-white h-full bg-base-100 bg-opacity-40  p-10 pt-16 pb-16 flex ">
                     <div className="poster-image-container relative">
                         <img src={`https://image.tmdb.org/t/p/w200${ movie && movie.poster_path }`} alt="movie poster" className="min-w-[200px]" />
-                        <AddRemoveBtn />
+                        <AddRemoveBtn id={params.id} watchlist={watchlist} setWatchlist={setWatchlist} />
                     </div>
                     <div className="movie-details mx-10 mr-0 flex flex-col justify-between ">
 

@@ -15,7 +15,7 @@ export const MovieProvider = ({ children }) => {
         movies: [],
         isLoading: false,
         isNowPlaying: true,
-        currentPage: 1,
+        currentPage: 1
     }
 
     const [state, dispatch] = useReducer(movieReducer, initialState)
@@ -200,22 +200,19 @@ export const MovieProvider = ({ children }) => {
         }
     }
 
-    //get movie images
-    // const getMovieImages = async (id) => {
-    //     setLoading()
-    //     try {
-    //         const response = await fetch(`https://api.themoviedb.org/3/movie/${ id }/images?api_key=${ APIKEY }&language=en-US`)
-    //         const data = await response.json()
+    //get watchlist
+    // const getWatchlist = async () => {
 
-    //         dispatch({
-    //             type: 'GET_MOVIE_IMAGES',
-    //             payload: data.results
-    //         })
-    //     } catch (err) {
-    //         throw new Error(err)
-    //     }
+    //     let arr=localStorage.getItem('watchlist')
+
+    //     if()
+
+    //     dispatch({
+    //         type: 'GET_WATCHLIST',
+    //         payload: data
+    //     })
+
     // }
-
 
     const setLoading = () => {
         dispatch({
@@ -246,7 +243,8 @@ export const MovieProvider = ({ children }) => {
             getNextPageTop,
             getNextPageUpcoming,
             setSearchValue,
-            getMovieVideos
+            getMovieVideos,
+
         }}>
             {children}
         </MovieContext.Provider>
