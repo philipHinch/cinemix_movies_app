@@ -9,6 +9,7 @@ import Tab from './components/Tab';
 import Footer from './layout/Footer'
 import SlidingMenu from './layout/SlidingMenu';
 import NotFound from './pages/NotFound';
+import Watchlist from './pages/Watchlist';
 
 function App() {
 
@@ -43,6 +44,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home isLightMode={isLightMode} setIsMovieInfo={setIsMovieInfo} watchlist={watchlist} setWatchlist={setWatchlist} />}></Route>
             <Route path="/movie/:id" element={<Movie setIsMovieInfo={setIsMovieInfo} watchlist={watchlist} setWatchlist={setWatchlist} />}></Route>
+            <Route path='/watchlist' element={<Watchlist />}>
+
+            </Route>
             <Route path="/*" element={<NotFound isLightMode={isLightMode} />}></Route>
           </Routes>
           {!isMovieInfo && <Footer />}

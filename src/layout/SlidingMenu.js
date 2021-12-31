@@ -1,4 +1,5 @@
 import DarkLightMode from "../components/DarkLightMode";
+import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 
 
@@ -25,7 +26,9 @@ const SlidingMenu = ({ isMenuOpen, setIsMenuOpen, isLightMode }) => {
                 </div>
                 {/* menu links */}
                 <div className={`${ isLightMode ? 'text-base-300' : 'text-white' } w-full -mt-10`}>
-                    <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all  border-l-2 border-primary ">Watchlist</div>
+                    <Link to='/watchlist'>
+                        <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all  border-l-2 border-primary ">Watchlist</div>
+                    </Link>
                     <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all my-5 border-l-2 border-primary">Videos</div>
                     <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all my-5 border-l-2 border-primary">Trailers</div>
                     <a href='https://www.themoviedb.org/' target='_blank' className="block text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all my-5 border-l-2 border-primary">TMDB</a>
