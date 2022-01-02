@@ -4,7 +4,7 @@ import Hamburger from '../components/Hamburger';
 import DarkLightMode from '../components/DarkLightMode';
 
 
-const Header = ({ setIsMenuOpen, setIsLightMode, isLightMode, isMovieInfo }) => {
+const Header = ({ setIsMenuOpen, setIsLightMode, isLightMode, isMovieInfo, isWatchlist }) => {
 
     const displayNone = 'display-none';
 
@@ -21,7 +21,7 @@ const Header = ({ setIsMenuOpen, setIsLightMode, isLightMode, isMovieInfo }) => 
                 </div>
             </div>
             <div className=" lg:flex-none search-bar flex-2">
-                {!isMovieInfo && <SearchBar />}
+                {!isMovieInfo && !isWatchlist && <SearchBar />}
             </div>
             <DarkLightMode setIsLightMode={setIsLightMode} isLightMode={isLightMode} displayNone={displayNone} />
         </header>

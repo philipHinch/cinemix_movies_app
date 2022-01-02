@@ -26,14 +26,19 @@ const SlidingMenu = ({ isMenuOpen, setIsMenuOpen, isLightMode }) => {
                 </div>
                 {/* menu links */}
                 <div className={`${ isLightMode ? 'text-base-300' : 'text-white' } w-full -mt-10`}>
-                    <Link to='/watchlist'>
+                    <Link to='/watchlist' onClick={handleClick}>
                         <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all  border-l-2 border-primary ">Watchlist</div>
                     </Link>
-                    <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all my-5 border-l-2 border-primary">Videos</div>
-                    <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all my-5 border-l-2 border-primary">Trailers</div>
-                    <a href='https://www.themoviedb.org/' target='_blank' className="block text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all my-5 border-l-2 border-primary">TMDB</a>
-                    <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all my-5 border-l-2 border-primary">About</div>
-                    <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all my-5 border-l-2 border-primary">Contact Us</div>
+                    <a href="#">
+                        <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all  border-l-2 border-primary">Videos</div></a>
+                    <a href="#">
+                        <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all  border-l-2 border-primary">Trailers</div></a>
+                    <a href="https://www.themoviedb.org/" target='_blank'>
+                        <div className="block text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all  border-l-2 border-primary">TMDB</div></a>
+                    <a href="#">
+                        <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all  border-l-2 border-primary">About</div></a>
+                    <a href="#">
+                        <div className="text-xl p-4  hover:bg-base-content hover:text-base-300  cursor-pointer transition-all  border-l-2 border-primary">Contact Us</div></a>
                 </div>
             </div>
         </div>

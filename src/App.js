@@ -17,6 +17,8 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLightMode, setIsLightMode] = useState('')
   const [isMovieInfo, setIsMovieInfo] = useState(false)
+  const [isTab, setIsTab] = useState(true)
+  const [isWatchlist, setIsWatchlist] = useState(false)
 
 
   useEffect(() => {
@@ -39,12 +41,12 @@ function App() {
       <Router>
         <div className={`flex flex-col  justify-between h-screen	 tracking-widest relative transition-all overflow-x-hidden ${ isLightMode ? 'bg-white' : 'bg-neutral' } ${ isMenuOpen && 'overflow-y-hidden	' }`}>
           <SlidingMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} isLightMode={isLightMode} />
-          <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} setIsLightMode={setIsLightMode} isLightMode={isLightMode} isMovieInfo={isMovieInfo} />
-          {!isMovieInfo && <Tab />}
+          <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} setIsLightMode={setIsLightMode} isLightMode={isLightMode} isMovieInfo={isMovieInfo} isWatchlist={isWatchlist} />
+          {isTab && <Tab />}
           <Routes>
-            <Route path="/" element={<Home isLightMode={isLightMode} setIsMovieInfo={setIsMovieInfo} watchlist={watchlist} setWatchlist={setWatchlist} />}></Route>
-            <Route path="/movie/:id" element={<Movie setIsMovieInfo={setIsMovieInfo} watchlist={watchlist} setWatchlist={setWatchlist} />}></Route>
-            <Route path='/watchlist' element={<Watchlist />}>
+            <Route path="/" element={<Home setIsWatchlist={setIsWatchlist} setIsTab={setIsTab} isLightMode={isLightMode} setIsMovieInfo={setIsMovieInfo} watchlist={watchlist} setWatchlist={setWatchlist} />}></Route>
+            <Route path="/movie/:id" element={<Movie setIsTab={setIsTab} setIsMovieInfo={setIsMovieInfo} watchlist={watchlist} setWatchlist={setWatchlist} />}></Route>
+            <Route path='/watchlist' element={<Watchlist setIsWatchlist={setIsWatchlist} setIsTab={setIsTab} watchlist={watchlist} setWatchlist={setWatchlist} isLightMode={isLightMode} isMenuOpen={isMenuOpen} />}>
 
             </Route>
             <Route path="/*" element={<NotFound isLightMode={isLightMode} />}></Route>

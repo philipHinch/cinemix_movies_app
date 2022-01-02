@@ -7,7 +7,7 @@ import { Icon } from '@iconify/react';
 
 
 
-const Movie = ({ setIsMovieInfo, watchlist, setWatchlist }) => {
+const Movie = ({ setIsMovieInfo, watchlist, setWatchlist, setIsTab }) => {
 
     const params = useParams()
 
@@ -20,7 +20,13 @@ const Movie = ({ setIsMovieInfo, watchlist, setWatchlist }) => {
         getMovieById(params.id)
         getMovieVideos(params.id)
         setIsMovieInfo(true)
+        setIsTab(false)
     }, [])
+
+    const handleClick = () => {
+        navigate(-1)
+        setIsMovieInfo(false)
+    }
 
     return (
         <>
@@ -28,7 +34,7 @@ const Movie = ({ setIsMovieInfo, watchlist, setWatchlist }) => {
                 <div className="movie-overlay bg-fixed bg-base-300 blur-sm" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${ movie && movie.backdrop_path })` }}>
                 </div>
 
-                <button className="btn go-back-btn absolute btn-sm my-3" onClick={() => navigate(-1)}>Back</button>
+                <button className="btn go-back-btn absolute btn-sm my-3" onClick={handleClick}>Back</button>
 
 
                 <div className="top-inner-movie-container max-w-[1280px] m-10 mt-12 rounded-xl shadow-xl text-white h-full bg-base-100 bg-opacity-40  p-10 pt-16 pb-16 flex ">

@@ -5,7 +5,7 @@ import Pagination from "../components/Pagination";
 import Opening from "./Opening";
 
 
-const Home = ({ isLightMode, setIsMovieInfo, watchlist, setWatchlist }) => {
+const Home = ({ isLightMode, setIsMovieInfo, watchlist, setWatchlist, setIsTab, setIsWatchlist }) => {
 
     const { movies, isLoading, isNowPlaying, isTopMovies, getNowPlaying, isComingSoon, currentPage, totalResults, getNextPageNow, getNextPageSearch, getNextPageTop, getNextPageUpcoming } = useContext(MovieContext)
 
@@ -13,6 +13,8 @@ const Home = ({ isLightMode, setIsMovieInfo, watchlist, setWatchlist }) => {
     //on initial page load, get now playing movies
     useEffect(() => {
         getNowPlaying()
+        setIsTab(true)
+        setIsWatchlist(false)
         setIsMovieInfo(false)
         //show opening animation on first time session
         setTimeout(() => {
@@ -21,6 +23,8 @@ const Home = ({ isLightMode, setIsMovieInfo, watchlist, setWatchlist }) => {
             }
         }, 1000)
     }, [])
+
+
 
 
     const numberPages = Math.floor(totalResults / 20)
