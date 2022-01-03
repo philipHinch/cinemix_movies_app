@@ -44,22 +44,26 @@ npm start
 ---
 
 DESKTOP
+
 ![This is an image](/src/assets/cinemixpreview1.png)
 
 ---
 
 DESKTOP
+
 ![This is an image](/src/assets/cinemixpreview2.png)
 
 ---
 
 IPAD
+
 ![This is an image](/src/assets/cinemixpreview3.png)
 
 
 ---
 
 MOBILE
+
 ![This is an image](/src/assets/cinemixpreview4.png)
 
 ---
