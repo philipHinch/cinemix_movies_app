@@ -29,6 +29,8 @@ Technologies used:
 
 [View Project](https://cinemix-movies-app.vercel.app/)
 
+---
+
 ### Install Dependencies
 
 ```
