@@ -43,16 +43,24 @@ npm start
 
 ---
 
-![This is an image]()
+DESKTOP
+![This is an image](/src/assets/cinemixpreview1.png)
 
 ---
 
-![This is an image]()
+DESKTOP
+![This is an image](/src/assets/cinemixpreview2.png)
 
 ---
 
-![This is an image]()
+IPAD
+![This is an image](/src/assets/cinemixpreview3.png)
 
+
+---
+
+MOBILE
+![This is an image](/src/assets/cinemixpreview4.png)
 
 ---
 
