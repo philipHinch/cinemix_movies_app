@@ -5,12 +5,12 @@ Click on a movie to view the movie information which includes a short descriptio
 
 The movie data was retrieved from [The Movie Database - TMDB](https://www.themoviedb.org/).
 
----
+![This is an image](https://raw.githubusercontent.com/philipHinch/underline/main/underline.png)
 
 While developing this project I really learned and understood challenging concepts such as managing the global state with **useContext**, **useReducer** and **useParams** hooks.
 This is also the first project where I implemented the use of **Tailwind CSS** together with **DaisyUI** components and I have become proficent with them. 
 
----
+![This is an image](https://raw.githubusercontent.com/philipHinch/underline/main/underline.png)
 
 Technologies used:
 
@@ -25,11 +25,9 @@ Technologies used:
 - CSS ANIMATIONS
 - MATERIAL UI REACT ICONS
 
----
-
 [View Project](https://cinemix-movies-app.vercel.app/)
 
----
+![This is an image](https://raw.githubusercontent.com/philipHinch/underline/main/underline.png)
 
 ### Install Dependencies
 
@@ -43,7 +41,7 @@ npm install
 npm start
 ```
 
----
+![This is an image](https://raw.githubusercontent.com/philipHinch/underline/main/underline.png)
 
 DESKTOP
 
@@ -67,8 +65,6 @@ IPAD
 MOBILE
 
 ![This is an image](/src/assets/cinemixpreview4.png)
-
----
 
 [View Project](https://cinemix-movies-app.vercel.app/)
 
